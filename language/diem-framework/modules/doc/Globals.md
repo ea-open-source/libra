@@ -18,12 +18,14 @@ This module provides global variables and constants that have no specific owner
 -  [Function `get_max_validators_per_set`](#0x1_Globals_get_max_validators_per_set)
 -  [Function `get_coin_scaling_factor`](#0x1_Globals_get_coin_scaling_factor)
 -  [Function `get_subsidy_ceiling_gas`](#0x1_Globals_get_subsidy_ceiling_gas)
--  [Function `get_vdf_difficulty`](#0x1_Globals_get_vdf_difficulty)
--  [Function `get_vdf_security`](#0x1_Globals_get_vdf_security)
+-  [Function `get_vdf_difficulty_baseline`](#0x1_Globals_get_vdf_difficulty_baseline)
+-  [Function `get_vdf_security_baseline`](#0x1_Globals_get_vdf_security_baseline)
 -  [Function `get_epoch_mining_thres_lower`](#0x1_Globals_get_epoch_mining_thres_lower)
 -  [Function `get_epoch_mining_thres_upper`](#0x1_Globals_get_epoch_mining_thres_upper)
 -  [Function `get_unlock`](#0x1_Globals_get_unlock)
 -  [Function `get_min_blocks_epoch`](#0x1_Globals_get_min_blocks_epoch)
+-  [Function `get_vouch_threshold`](#0x1_Globals_get_vouch_threshold)
+-  [Function `get_signing_threshold`](#0x1_Globals_get_signing_threshold)
 -  [Function `get_constants`](#0x1_Globals_get_constants)
 
 
@@ -79,7 +81,13 @@ epoch by a miner to remain compliant
 
 </dd>
 <dt>
-<code>vdf_difficulty: u64</code>
+<code>vdf_difficulty_baseline: u64</code>
+</dt>
+<dd>
+
+</dd>
+<dt>
+<code>vdf_security_baseline: u64</code>
 </dt>
 <dd>
 
@@ -104,6 +112,18 @@ epoch by a miner to remain compliant
 </dd>
 <dt>
 <code>min_blocks_per_epoch: u64</code>
+</dt>
+<dd>
+
+</dd>
+<dt>
+<code>vouch_threshold: u64</code>
+</dt>
+<dd>
+
+</dd>
+<dt>
+<code>signing_threshold_pct: u64</code>
 </dt>
 <dd>
 
@@ -227,14 +247,14 @@ Get max validator per epoch
 
 </details>
 
-<a name="0x1_Globals_get_vdf_difficulty"></a>
+<a name="0x1_Globals_get_vdf_difficulty_baseline"></a>
 
-## Function `get_vdf_difficulty`
+## Function `get_vdf_difficulty_baseline`
 
 Get the current vdf_difficulty
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vdf_difficulty">get_vdf_difficulty</a>(): u64
+<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vdf_difficulty_baseline">get_vdf_difficulty_baseline</a>(): u64
 </code></pre>
 
 
@@ -243,8 +263,8 @@ Get the current vdf_difficulty
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vdf_difficulty">get_vdf_difficulty</a>(): u64 {
-  <a href="Globals.md#0x1_Globals_get_constants">get_constants</a>().vdf_difficulty
+<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vdf_difficulty_baseline">get_vdf_difficulty_baseline</a>(): u64 {
+  <a href="Globals.md#0x1_Globals_get_constants">get_constants</a>().vdf_difficulty_baseline
 }
 </code></pre>
 
@@ -252,14 +272,14 @@ Get the current vdf_difficulty
 
 </details>
 
-<a name="0x1_Globals_get_vdf_security"></a>
+<a name="0x1_Globals_get_vdf_security_baseline"></a>
 
-## Function `get_vdf_security`
+## Function `get_vdf_security_baseline`
 
 Get the current vdf_difficulty
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vdf_security">get_vdf_security</a>(): u64
+<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vdf_security_baseline">get_vdf_security_baseline</a>(): u64
 </code></pre>
 
 
@@ -268,8 +288,8 @@ Get the current vdf_difficulty
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vdf_security">get_vdf_security</a>(): u64 {
-  512
+<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vdf_security_baseline">get_vdf_security_baseline</a>(): u64 {
+  <a href="Globals.md#0x1_Globals_get_constants">get_constants</a>().vdf_security_baseline
 }
 </code></pre>
 
@@ -377,6 +397,56 @@ Get the mining threshold
 
 </details>
 
+<a name="0x1_Globals_get_vouch_threshold"></a>
+
+## Function `get_vouch_threshold`
+
+Get the threshold for unrelated vouchers per validator
+
+
+<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vouch_threshold">get_vouch_threshold</a>(): u64
+</code></pre>
+
+
+
+<details>
+<summary>Implementation</summary>
+
+
+<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_vouch_threshold">get_vouch_threshold</a>(): u64 {
+  <a href="Globals.md#0x1_Globals_get_constants">get_constants</a>().vouch_threshold
+}
+</code></pre>
+
+
+
+</details>
+
+<a name="0x1_Globals_get_signing_threshold"></a>
+
+## Function `get_signing_threshold`
+
+Get the threshold of number of signed blocks in an epoch per validator
+
+
+<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_signing_threshold">get_signing_threshold</a>(): u64
+</code></pre>
+
+
+
+<details>
+<summary>Implementation</summary>
+
+
+<pre><code><b>public</b> <b>fun</b> <a href="Globals.md#0x1_Globals_get_signing_threshold">get_signing_threshold</a>(): u64 {
+  <a href="Globals.md#0x1_Globals_get_constants">get_constants</a>().signing_threshold_pct
+}
+</code></pre>
+
+
+
+</details>
+
 <a name="0x1_Globals_get_constants"></a>
 
 ## Function `get_constants`
@@ -402,11 +472,14 @@ Get the constants for the current network
       epoch_length: 60, // seconds
       max_validators_per_set: 100,
       subsidy_ceiling_gas: 296 * <a href="Globals.md#0x1_Globals_COIN_SCALING_FACTOR">COIN_SCALING_FACTOR</a>,
-      vdf_difficulty: 100,
+      vdf_difficulty_baseline: 100,
+      vdf_security_baseline: 512,
       epoch_mining_thres_lower: 2, //many tests depend on two proofs because the test harness already gives one at genesis <b>to</b> validators
       epoch_mining_thres_upper: 1000, // upper bound unlimited
       epoch_slow_wallet_unlock: 10,
       min_blocks_per_epoch: 0,
+      vouch_threshold: 0,
+      signing_threshold_pct: 3,
     }
   };
 
@@ -415,11 +488,14 @@ Get the constants for the current network
       epoch_length: 60 * 40, // 40 mins, enough for a hard miner proof.
       max_validators_per_set: 100,
       subsidy_ceiling_gas: 8640000 * <a href="Globals.md#0x1_Globals_COIN_SCALING_FACTOR">COIN_SCALING_FACTOR</a>,
-      vdf_difficulty: 120000000,
+      vdf_difficulty_baseline: 120000000,
+      vdf_security_baseline: 512,
       epoch_mining_thres_lower: 1, // in testnet, staging, we don't want <b>to</b> wait too long between proofs.
       epoch_mining_thres_upper: 72, // upper bound enforced at 20 mins per proof.
       epoch_slow_wallet_unlock: 10000000,
       min_blocks_per_epoch: 1000,
+      vouch_threshold: 0,
+      signing_threshold_pct: 3,
     }
   } <b>else</b> {
     <b>return</b> <a href="Globals.md#0x1_Globals_GlobalConstants">GlobalConstants</a> {
@@ -431,11 +507,14 @@ Get the constants for the current network
       // target transaction per sec max gas: 20
       // uses "scaled representation", since there are no decimals.
       subsidy_ceiling_gas: 8640000 * <a href="Globals.md#0x1_Globals_COIN_SCALING_FACTOR">COIN_SCALING_FACTOR</a>, // subsidy amount assumes 24 hour epoch lengths. Also needs <b>to</b> be adjusted for coin_scale the onchain representation of human readable value.
-      vdf_difficulty: 120000000, // FYI approx 30 mins per proof on 2020 macbook pro 2.5 ghz quadcore
+      vdf_difficulty_baseline: 120000000, // FYI approx 30 mins per proof on 2020 macbook pro 2.5 ghz quadcore
+      vdf_security_baseline: 512,
       epoch_mining_thres_lower: 7, // NOTE: bootstrapping, allowance for operator error.
       epoch_mining_thres_upper: 72, // upper bound enforced at 20 mins per proof.
       epoch_slow_wallet_unlock: 1000 * <a href="Globals.md#0x1_Globals_COIN_SCALING_FACTOR">COIN_SCALING_FACTOR</a>, // approx 10 years for largest accounts in genesis.
       min_blocks_per_epoch: 10000,
+      vouch_threshold: 2, // Production is 2 vouchers per validator
+      signing_threshold_pct: 3,
     }
   }
 }

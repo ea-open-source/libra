@@ -9,12 +9,12 @@ db_path = "/root/.0L/db"
 account = "3dc18d1cf61faac6ac70e3a63f062e4b"
 auth_key = "2bffcbd0e9016013cb8ca78459f69d2b3dc18d1cf61faac6ac70e3a63f062e4b"
 statement = "Protests rage across the nation"
-ip = "157.230.15.42"
+ip = "34.162.237.59"
 default_node = "http://localhost:8080/"
 upstream_nodes = ["http://localhost:8080/"]
 
 [chain_info]
-chain_id = "experimental"
+chain_id = "TESTING"
 base_epoch = 0
 base_waypoint = "0:683185844ef67e5c8eeaa158e635de2a4c574ce7bbb7f41f787d38db2d623ae2"
 
